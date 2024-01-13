@@ -11,6 +11,14 @@ export default function Home() {
         .catch((err) => console.log(err))
     }, [])
 
+    const handleDelete = (id) => {
+        axios.delete('/api/v1/delete-student/' + id)
+        .then(() => {
+            location.reload()
+        })
+        .catch((err) => console.log(err));
+    }
+
     return (
         <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
             <div className='w-50 bg-white rounded p-3'>
@@ -37,7 +45,7 @@ export default function Home() {
                                     <td>
                                         <Link to={`/read/${student.id}`} className='btn btn-sm btn-info'>Read</Link>
                                         <Link to={`/edit/${student.id}`} className='btn btn-sm btn-primary mx-2'>Edit</Link>
-                                        <button className='btn btn-sm btn-danger'>Delete</button>
+                                        <button onClick={() => handleDelete(student.id)} className='btn btn-sm btn-danger'>Delete</button>
                                     </td>
                                 </tr>
                             )

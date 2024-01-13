@@ -48,7 +48,17 @@ const getRead = async(req, res) => {
 }
 
 const deleteStudent = async(req, res) => {
+    const sql = "DELETE FROM student_info WHERE ID=?";
+    const id = req.params.id;
 
+    db.query(sql, [id], (err, result) => {
+        if(err) {
+            console.log(err)
+            return res.json({Message: 'Server Error'})
+        }
+
+        return res.json(result);
+    })
 }
 
 module.exports = {
