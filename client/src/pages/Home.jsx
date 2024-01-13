@@ -36,7 +36,7 @@ export default function Home() {
                                     <td>{student.email}</td>
                                     <td>
                                         <Link to={`/read/${student.id}`} className='btn btn-sm btn-info'>Read</Link>
-                                        <button className='btn btn-sm btn-primary mx-2'>Edit</button>
+                                        <Link to={`/edit/${student.id}`} className='btn btn-sm btn-primary mx-2'>Edit</Link>
                                         <button className='btn btn-sm btn-danger'>Delete</button>
                                     </td>
                                 </tr>
